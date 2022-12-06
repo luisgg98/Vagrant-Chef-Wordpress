@@ -11,12 +11,13 @@ archive_file "#{node['wordpress']['wordpress_path']}/#{node['wordpress']['wordpr
     destination "#{node['wordpress']['wordpress_path']}" 
 end
 
-template "#{node['wordpress']['document_root']}/wp-config.php" do
+#cookbooks\wordpress\templates\wp-config.php.erb
+template "#{node['wordpress']['document_root']}/wp-config.php.erb" do
     source 'wp-config.php.erb'
 end
 
 
-execute 'extraer_wordpress' do
+execute 'Extract wordpress' do
     command "tar xzvf #{node['wordpress']['wordpress_path']}/#{node['wordpress']['wordpress_file']}"
     cwd "#{node['wordpress']['wordpress_path']}"
   end
