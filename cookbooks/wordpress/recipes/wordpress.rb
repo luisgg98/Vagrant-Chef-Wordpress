@@ -11,16 +11,18 @@ archive_file "#{node['wordpress']['wordpress_path']}/#{node['wordpress']['wordpr
     destination "#{node['wordpress']['wordpress_path']}" 
 end
 
-#cookbooks\wordpress\templates\wp-config.php.erb
-template "#{node['wordpress']['document_root']}/wp-config.php.erb" do
-    source 'wp-config.php.erb'
-end
+
 
 
 execute 'Extract wordpress' do
     command "tar xzvf #{node['wordpress']['wordpress_path']}/#{node['wordpress']['wordpress_file']}"
     cwd "#{node['wordpress']['wordpress_path']}"
   end
+
+
+template "#{node['wordpress']['document_root']}/wp-config.php" do
+    source 'wp-config.php.erb'
+end
 
 execute "Install WP CLI" do
     command "curl -O https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar && chmod +x wp-cli.phar && mv wp-cli.phar /usr/local/bin/wp"
