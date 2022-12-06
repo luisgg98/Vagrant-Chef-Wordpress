@@ -1,0 +1,46 @@
+<?php
+/**
+ * Custom WordPress configurations on "wp-config.php" file.
+ *
+ * This file has the following configurations: MySQL settings, Table Prefix, Secret Keys, WordPress Language, ABSPATH and more.
+ * For more information visit {@link https://codex.wordpress.org/Editing_wp-config.php Editing wp-config.php} Codex page.
+ * Created using {@link http://generatewp.com/wp-config/ wp-config.php File Generator} on GenerateWP.com.
+ *
+ * @package WordPress
+ * @generator GenerateWP.com
+ */
+
+
+/* MySQL settings */
+define( 'DB_NAME', '<%= @node['wordpress']['db_name'] %>' );
+define( 'DB_USER', '<%= @node['wordpress']['db_user'] %>' );
+define( 'DB_PASSWORD', '<%= @node['wordpress']['db_user_password'] %>' );
+define( 'DB_HOST',     'localhost' );
+define( 'DB_CHARSET',  'utf8mb4' );
+
+
+/* MySQL database table prefix. */
+$table_prefix = 'wp_';
+
+
+/* Authentication Unique Keys and Salts. */
+/* https://api.wordpress.org/secret-key/1.1/salt/ */
+define('AUTH_KEY',         'k|X !U)CtwbVbjyl`eZ{UilcPbZ{wVJkn#dI* oB*%VbxH<1f?LmRZ97Eun`r0Q6');
+define('SECURE_AUTH_KEY',  'E#ee|lGR;YQ^cY+|%B[;i6s5Ypx+fnGKKDL#nAFIrbzGP^e+)6,p&^2aC/eFQ}%?');
+define('LOGGED_IN_KEY',    'u yw*WF8+08fXUx/@}wn!:BtsmIB7fXh]tfD-[m-e|${8ao7n-aC[U]t:`l!<B}z');
+define('NONCE_KEY',        'I7a+ul4{zYv>0h[pvtTVyEDt8f`6ZA3+3xD^]RyXe#4HU@i?uzqx5&~5n}wStm![');
+define('AUTH_SALT',        '9voq=_]YB4svm/I8p;g%;E9XRNl(^oyfcB,X|cd|_dsD,OMR$Z7Vzk5OZ8VPNWM%');
+define('SECURE_AUTH_SALT', 't8((u%|J:>DsZ[^oU**-e;uYie^%4`&U1#G5&[i:#$^Mxj$*xfPWHV}f-?1+db`(');
+define('LOGGED_IN_SALT',   'qZz;~6*GWm<>PtA#<W{bhG}>u{j5!9eU,.dzX?(FwQZQcT7|4$3Dp:d8 k -rk+Q');
+define('NONCE_SALT',       '{I)r2|EHiEFFAAA(TQ}|sbyYPI]Ke-@Hgm3yi937-(QF)jiA|n;0kH@d)6kbRdZ2');
+
+define( 'WP DEBUG', true );
+define( 'WP DEBUG DISPLAY', false ) ;
+define( 'WP DEBUG LOG', true );
+
+/* Absolute path to the WordPress directory. */
+if ( !defined('ABSPATH') )
+	define('ABSPATH', dirname(__FILE__) . '/');
+
+/* Sets up WordPress vars and included files. */
+require_once(ABSPATH . 'wp-settings.php');
