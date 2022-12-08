@@ -1,5 +1,6 @@
 require 'spec_helper'
-
+# How to make test files
+# https://docs.chef.io/workstation/chefspec/
 describe 'wordpress::apache' do
     platform 'ubuntu'
 
@@ -21,12 +22,16 @@ describe 'wordpress::apache' do
         it 'Correct execution' do
             expect { chef_run }.to_not raise_error
         end
+        it "Wordpress configuration file" do
+            expect(chef_run).to create_template("/etc/apache2/sites-available/wordpress.conf")
+        end
 
     end
 
 end
 
-describe 'wordpress:database' do
+#cookbooks\wordpress\recipes\database.rb
+describe 'wordpress::database' do
     platform 'ubuntu'
 
     context 'Check mysql installation' do
@@ -48,8 +53,8 @@ describe 'wordpress::wordpress' do
                 expect(chef_run).to create_remote_file("/srv/www/latest.tar.gz")
         end
 
-        it "Apache file found" do
-                expect(chef_run).to create_template("/etc/apache2/sites-available/wordpress.conf")
+        it "Wordpress configuration file" do
+                expect(chef_run).to create_template("/srv/www/wordpress/wp-config.php")
         end
 
     end

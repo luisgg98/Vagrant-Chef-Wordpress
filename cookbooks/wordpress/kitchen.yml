@@ -22,11 +22,27 @@ verifier:
 
 platforms:
   - name: ubuntu-20.04
-  - name: centos-8
+  - name: debian-8
 
+# Test Kitchen https://docs.chef.io/workstation/kitchen/
 suites:
   - name: default
     verifier:
       inspec_tests:
         - test/integration/default
+    attributes:
+# https://www.tutorialspoint.com/chef/chef_testing_cookbook_with_test_kitchen.htm
+  - name: apache
+    run_list:
+      - recipe[wordpress::apache]
+    attributes:
+
+  - name: database
+    run_list:
+      - recipe[wordpress::database]
+    attributes:
+
+  - name: wordpress
+    run_list:
+      - recipe[wordpress::wordpress]
     attributes:

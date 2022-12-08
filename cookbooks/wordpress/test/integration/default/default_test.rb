@@ -1,7 +1,7 @@
-# Chef InSpec test for recipe wordpress::default
+# InSpec test for recipe vim_pruebas_chef::default
 
-# The Chef InSpec reference, with examples and extensive documentation, can be
-# found at https://docs.chef.io/inspec/resources/
+# The InSpec reference, with examples and extensive documentation, can be
+# found at https://www.inspec.io/docs/reference/resources/
 
 unless os.windows?
   # This is an example test, replace with your own test.
