@@ -27,22 +27,22 @@ platforms:
 # Test Kitchen https://docs.chef.io/workstation/kitchen/ default
 suites:
 # https://www.tutorialspoint.com/chef/chef_testing_cookbook_with_test_kitchen.htm
-  - name: wordpress_settings
+  - name: wordpresssettings
     run_list:
-      - recipe[wordpress::default]
+      - recipe[wordpress::default_spec]
     attributes:
 
-  - name: database_sql
+  - name: databasesql
     run_list:
-      - recipe[wordpress::default]
+      - recipe[wordpress::default_spec]
     attributes:
 
   - name: apache
     run_list:
-      - recipe[wordpress::default]
+      - recipe[wordpress::default_spec]
     attributes:
 
   - name: php
     run_list:
-      - recipe[wordpress::default]
+      - recipe[wordpress::default_spec]
     attributes:
