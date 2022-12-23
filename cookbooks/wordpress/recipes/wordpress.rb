@@ -30,8 +30,6 @@ execute "Install WP CLI" do
 end
   
 
-
 execute "Configure Wordpress with WP CLI" do
     command "wp core install --url='#{node['wordpress']['wordpress_url']}' --title='#{node['wordpress']['wordpress_title']}' --admin_user='#{node['wordpress']['admin_user']}' --admin_password='#{node['wordpress']['admin_pass']}' --admin_email='#{node['wordpress']['admin_mail']}' --allow-root --path='#{node['wordpress']['document_root']}'"
-
 end
